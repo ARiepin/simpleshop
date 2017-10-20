@@ -36,6 +36,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'letter_opener'
 end
 
 group :development do
