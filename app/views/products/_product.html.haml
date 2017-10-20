@@ -1,0 +1,12 @@
+.col-md-4
+  %h4
+    = product.name
+  %p
+  = product.brand
+  %p
+  = product.model
+  %p
+  = number_to_currency(product.price)
+  %p
+    %button.btn.btn-info(data-target="#product_#{product.id}" data-toggle="modal" type="button") Detaied view
+  = render 'product_modal', product: product
