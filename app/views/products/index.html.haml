@@ -1,7 +1,6 @@
-.container
-  %h3 Products List
-  .row
-    .col-md-12
-      .row
-        - @products.each do |product|
-          = render 'product', product: product
+%h3 Products List
+.row
+  .col-md-12
+    .row
+      - @products.each do |product|
+        = render 'product', product: product

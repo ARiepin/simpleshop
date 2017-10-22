@@ -1,0 +1,10 @@
+%body
+  %header.navbar.navbar-default.navbar-fixed-top.navbar-inverse{ role: "navigation" }
+    .container
+      .navbar-brand
+        = link_to "SimpleShop", root_path
+      .nav
+        %ul.nav.nav-pills.navbar-right
+          %li= link_to "Register", new_user_registration_path
+          %li= link_to "Sign in", new_user_session_path
+          %li= link_to "Exit", destroy_user_session_path, method: :delete
