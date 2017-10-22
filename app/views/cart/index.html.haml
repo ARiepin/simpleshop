@@ -1,0 +1,24 @@
+%br
+%br
+%h3 Cart
+%table.table-hover.table-bordered
+  %thead
+    %th
+      Name
+    %th
+      Price
+    %th
+      Actions
+  %tbody
+    - @items.each do |item|
+      %tr
+      %td
+        = item[:name]
+      %td
+        = number_to_currency(item[:price])
+      %td
+        = button_to 'Delete', delete_item_cart_index_path(product_id: item[:id]), method: :delete
+  %tfoot
+    %tr
+      %td
+        = button_to 'Buy', order_cart_index_path

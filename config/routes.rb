@@ -8,5 +8,13 @@ Rails.application.routes.draw do
       get :import_form
       post :import
     end
+     post :add_to_cart, on: :member
+  end
+
+  resources :cart, only: :index do
+    collection do
+      delete '/delete_item/:product_id', to: 'cart#delete_item', as: 'delete_item'
+      post :order
+    end
   end
 end

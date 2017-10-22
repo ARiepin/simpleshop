@@ -17,6 +17,6 @@
         %p
         = product.desc
         %br
-        %button.btn.btn-primary Add to Cart
+        = button_to 'Add to Cart', add_to_cart_product_path(product.id)
       .modal-footer
         %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close

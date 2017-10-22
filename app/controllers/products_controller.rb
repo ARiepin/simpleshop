@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :add_to_cart
 
   def index
   end
@@ -18,5 +18,12 @@ class ProductsController < ApplicationController
       flash[:error] = 'Something went wrong'
       redirect_back(fallback_location: root_path)
     end
+  end
+
+  def add_to_cart
+    product_id = params[:id]
+    cart = Cart.new(session)
+    cart.add_item(product_id)
+    redirect_back(fallback_location: root_path)
   end
 end
