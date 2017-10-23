@@ -1,8 +1,6 @@
-%br
-%br
-  %h3 Users List
-  .row
-    .col-md-12
-      %ul.list-group
-        - @users.each do |user|
-          %li.list-group-item= user.email
+%h3 Users List
+.row
+  .col-md-12
+    %ul.list-group
+      - @users.each do |user|
+        %li.list-group-item= user.email

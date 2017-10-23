@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
   end
 
   def create
+    if @product.save
+       flash[:notice] = 'Product has been added'
+    else
+      flash[:error]  = @product.errors.full_messages.to_sentence
+    end
     redirect_to products_path
   end
 
