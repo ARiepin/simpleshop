@@ -19,4 +19,12 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :index
+
+  namespace :api do
+    namespace :v1, defaults: {format: :json} do
+      resources :products, only: %i(index show create) do
+        patch :update_price, on: :member
+      end
+    end
+  end
 end

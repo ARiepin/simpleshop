@@ -17,7 +17,6 @@ class CartController < ApplicationController
   end
 
   def order
-    byebug
     @items = @cart.items_for_order
     order = Order.new(user: current_user, order_items_attributes: @items)
 
