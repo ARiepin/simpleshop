@@ -17,4 +17,6 @@ Rails.application.routes.draw do
       post :order
     end
   end
+
+  resources :users, only: :index
 end
