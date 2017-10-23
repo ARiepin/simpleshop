@@ -17,8 +17,8 @@
       %td
         = number_to_currency(item[:price])
       %td
-        = button_to 'Delete', delete_item_cart_index_path(product_id: item[:id]), method: :delete
+        = button_to 'Delete', delete_item_cart_index_path(product_id: item[:id]), method: :delete, class: 'btn btn-sm btn-danger'
   %tfoot
     %tr
       %td
-        = button_to 'Buy', order_cart_index_path
+        = button_to 'Buy', order_cart_index_path, class: 'btn btn-info'

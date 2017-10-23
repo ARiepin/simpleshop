@@ -17,6 +17,6 @@
         %p
         = product.desc
         %br
-        = button_to 'Add to Cart', add_to_cart_product_path(product.id)
+        = button_to 'Add to Cart', add_to_cart_product_path(product.id), class: 'btn btn-info'
       .modal-footer
-        %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Close
