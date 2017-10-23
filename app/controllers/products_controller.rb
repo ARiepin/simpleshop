@@ -14,19 +14,12 @@ class ProductsController < ApplicationController
   end
 
   def import
-    begin
-      file = File.read(params.dig(:products, :file).path)
-      data = JSON.parse(file)
-      ApplicationRecord.transaction do
-        Product.create!(data['products'])
-      end
-
-      flash['success'] = 'Products have been successfully imported'
-      redirect_to root_path
-    rescue
-      flash[:error] = 'Something went wrong'
-      redirect_back(fallback_location: root_path)
+    if ProductsImporter.from_json(file: params.dig(:products, :file).path)
+      flash[:notice] = 'Products have been successfully imported'
+    else
+      flash[:error] = 'Wrong file format'
     end
+    redirect_back(fallback_location: root_path)
   end
 
   def add_to_cart
