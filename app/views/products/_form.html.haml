@@ -1,0 +1,30 @@
+.row
+  .col-md-6
+    = form_for :products, url: import_products_path, html: { multipart: true, class: 'form-inline' } do |f|
+      .form-group
+      = f.label 'Import products'
+      = f.file_field :file, class: 'form-control', accept: '.json'
+      = f.submit 'Import', class: 'btn btn-primary'
+.row
+  .col-md-4
+    = form_for :product, url: products_path, html: {class: 'form-horizontal'} do |f|
+      .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+      .form-group
+      = f.label :brand
+      = f.text_field :brand, class: 'form-control'
+      .form-group
+      = f.label :model
+      = f.text_field :model, class: 'form-control'
+      .form-group
+      = f.label :sku
+      = f.text_field :sku, class: 'form-control'
+      .form-group
+      = f.label :price
+      = f.number_field :price, class: 'form-control'
+      .form-group
+      = f.label :desc
+      = f.text_area :desc, class: 'form-control'
+      .form-group
+      = f.submit 'Add product', class: 'btn btn-primary'

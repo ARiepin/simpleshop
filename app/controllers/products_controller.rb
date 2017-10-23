@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
   def index
   end
 
+  def create
+    redirect_to products_path
+  end
+
   def import
     begin
       file = File.read(params.dig(:products, :file).path)
@@ -25,5 +29,11 @@ class ProductsController < ApplicationController
     cart = Cart.new(session)
     cart.add_item(product_id)
     redirect_back(fallback_location: root_path)
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :desc, :price, :sku, :model, :brand)
   end
 end
