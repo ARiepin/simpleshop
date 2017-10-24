@@ -4,7 +4,7 @@ class Api::V1::ApiController < ActionController::Base
   private
 
   def verify_token
-    if request.headers['TOKEN'] == 'VERY_SECURE_TOKEN'
+    if request.headers['TOKEN'] == ENV['API_SECURE_TOKEN']
       yield
     else
       render json: { error: 'Please provide valid token'}, status: 401
